@@ -34,6 +34,30 @@
     <Filter Include="Engine\Managers\InputManager">
       <UniqueIdentifier>{b865d16b-715a-4b36-8818-e444290a9cc5}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Engine\Managers\Sockets">
+      <UniqueIdentifier>{c34bcc92-e69c-460c-93bf-481f6734a890}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\Managers\Network">
+      <UniqueIdentifier>{10d037fe-3a1a-4bc7-980f-656ac8ce394d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\Managers\Agents">
+      <UniqueIdentifier>{7798d7df-cdb3-43da-8d84-bac5ef14ee02}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\Managers\Polygon">
+      <UniqueIdentifier>{f20a3a7e-530c-43e0-8951-9956574a8046}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\Managers\Agents\Behaviours">
+      <UniqueIdentifier>{394e353b-b952-4d49-a6ec-96349fb8a205}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\Managers\Graphs">
+      <UniqueIdentifier>{aa98c0ee-b0d0-4c32-a057-054099c27329}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\Managers\Graphs\GraphNodes">
+      <UniqueIdentifier>{1d0c1bbc-1ab1-4899-8ac7-a3dda85a72af}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\Managers\Graphs\GraphEdges">
+      <UniqueIdentifier>{eed43637-0995-49bb-82c5-606f65ac7de4}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\BaseApplication.cpp">
@@ -75,11 +99,32 @@
     <ClCompile Include="src\inputmanager.cpp">
       <Filter>Engine\Managers\InputManager</Filter>
     </ClCompile>
-    <ClCompile Include="src\Player2.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="src\Agent.cpp">
+      <Filter>Engine\Managers\Agents</Filter>
     </ClCompile>
-    <ClCompile Include="src\Ball.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="src\AABBCollider.cpp">
+      <Filter>Engine\Managers\CollisionManager</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Polygon.cpp">
+      <Filter>Engine\Managers\Polygon</Filter>
+    </ClCompile>
+    <ClCompile Include="src\IBehaviour.cpp">
+      <Filter>Engine\Managers\Agents\Behaviours</Filter>
+    </ClCompile>
+    <ClCompile Include="src\SeekBehaviour.cpp">
+      <Filter>Engine\Managers\Agents\Behaviours</Filter>
+    </ClCompile>
+    <ClCompile Include="src\WanderBehaviour.cpp">
+      <Filter>Engine\Managers\Agents\Behaviours</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Graph.cpp">
+      <Filter>Engine\Managers\Graphs</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GraphNode.cpp">
+      <Filter>Engine\Managers\Graphs\GraphNodes</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GraphEdge.cpp">
+      <Filter>Engine\Managers\Graphs\GraphEdges</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -119,11 +164,32 @@
     <ClInclude Include="src\inputmanager.h">
       <Filter>Engine\Managers\InputManager</Filter>
     </ClInclude>
-    <ClInclude Include="src\Player2.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="src\Agent.h">
+      <Filter>Engine\Managers\Agents</Filter>
     </ClInclude>
-    <ClInclude Include="src\Ball.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="src\AABBCollider.h">
+      <Filter>Engine\Managers\CollisionManager</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Polygon.h">
+      <Filter>Engine\Managers\Polygon</Filter>
+    </ClInclude>
+    <ClInclude Include="src\IBehaviour.h">
+      <Filter>Engine\Managers\Agents\Behaviours</Filter>
+    </ClInclude>
+    <ClInclude Include="src\WanderBehaviour.h">
+      <Filter>Engine\Managers\Agents\Behaviours</Filter>
+    </ClInclude>
+    <ClInclude Include="src\SeekBehaviour.h">
+      <Filter>Engine\Managers\Agents\Behaviours</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Graph.h">
+      <Filter>Engine\Managers\Graphs</Filter>
+    </ClInclude>
+    <ClInclude Include="src\GraphNode.h">
+      <Filter>Engine\Managers\Graphs\GraphNodes</Filter>
+    </ClInclude>
+    <ClInclude Include="src\GraphEdge.h">
+      <Filter>Engine\Managers\Graphs\GraphEdges</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

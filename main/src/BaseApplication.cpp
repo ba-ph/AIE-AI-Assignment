@@ -4,6 +4,7 @@
 #include <glm/glm.hpp>
 #include <iostream>
 #include "InputManager.h"
+#include "Vector2.h"
 
 bool BaseApplication::createWindow(const char* title, int width, int height) {
 
@@ -63,6 +64,17 @@ bool BaseApplication::isKeyPressed(int key) {
 
 bool BaseApplication::isMouseButtonPressed(int button) {
 	return glfwGetMouseButton(m_window, button) == GLFW_PRESS;
+}
+
+void BaseApplication::getCursorPositionVec(Vector2& a_mousePos)
+{
+	float height = 720.0f;
+
+	double dx = 0, dy = 0;
+	glfwGetCursorPos(m_window, &dx, &dy);
+	a_mousePos.x = (int)dx;
+	
+	a_mousePos.y = height - (int)dy;
 }
 
 void BaseApplication::getCursorPosition(int& x, int& y) {

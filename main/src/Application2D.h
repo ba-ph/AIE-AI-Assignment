@@ -1,14 +1,22 @@
 #pragma once
-
 #include "BaseApplication.h"
-#include "Transform.h"
-#include "Player.h"
+
 
 class Vector2;
 class SpriteBatch;
 class Texture;
 class Font;
 class EntityManager;
+class Socket;
+class BaseEntity;
+class Graph;
+class GraphNode;
+
+#include "Agent.h"
+#include "WanderBehaviour.h"
+#include "SeekBehaviour.h"
+#include "IBehaviour.h"
+#include <vector>
 
 class Application2D : public BaseApplication {
 public:
@@ -29,6 +37,19 @@ protected:
 	Font*			m_font;
 
 private:
-	EntityManager* m_entityManager;
 
+	void CreateGraph();
+
+	Vector2 m_mousePos;
+	EntityManager* m_entityManager;
+	Graph* pGraph;
+
+	Transform rootTransform;
+	
+    SeekBehaviour seekBehaviour;
+	WanderBehaviour wanderBehaviour;
+
+	//std::vector<GraphNode*> m_mapNodes;
+
+	Agent object1;
 };

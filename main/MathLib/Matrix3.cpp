@@ -53,13 +53,10 @@ Matrix3 Matrix3::GetTranspose()
 
 Vector2 Matrix3::operator*(const Vector2 & rhs) const
 {
-	Vector2 newVec;
-
-	/*newVec.x = m00 * rhs.x + m10 * rhs.y + m20 * rhs.z;
-	newVec.y = m01 * rhs.x + m11 * rhs.y + m21 * rhs.z;
-	newVec.z = m02 * rhs.x + m12 * rhs.y + m22 * rhs.z;*/
-
-	return newVec;
+	Vector2 newVector2;
+	newVector2.x = m[0] * rhs.x + m[3] * rhs.y + 1.0f*m[6];
+	newVector2.y = m[1] * rhs.x + m[4] * rhs.y + 1.0f*m[7];
+	return newVector2;
 }
 
 Vector3 Matrix3::operator*(const Vector3& rhs) const
@@ -90,11 +87,6 @@ Matrix3 Matrix3::operator*(const Matrix3 & rhs)
 	newMat.m22 = m02*rhs.m20 + m12*rhs.m21 + m22*rhs.m22;
 
 	return newMat;
-}
-
-Vector2 Matrix3::GetPos()
-{
-	return Vector2(m02, m12);
 }
 
 Matrix3::operator float*()

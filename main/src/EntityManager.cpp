@@ -3,7 +3,7 @@
 
 EntityManager::EntityManager()
 {
-
+	idCount = 0;
 }
 
 EntityManager::~EntityManager()
@@ -37,20 +37,6 @@ void EntityManager::AddEntity(int a_entType)
 	//Add a new entity
 	if (a_entType == 1)
 	{
-		m_entities.push_back(new Player(315.5f, new Texture("./bin/textures/player.png"), rootTransform));
-		m_entities[0]->m_transform->Translate(Vector2(45, 350));
-	}
-
-	if (a_entType == 2)
-	{
-		m_entities.push_back(new Player2(315.5f, new Texture("./bin/textures/player.png"), rootTransform));
-		m_entities[1]->m_transform->Translate(Vector2(1235, 350));
-	}
-
-	if (a_entType == 3)
-	{
-		m_entities.push_back(new Ball(new Texture("./bin/textures/ball.png"), rootTransform));
-		m_entities[2]->m_transform->Translate(Vector2(640, 360));
-		m_entities[2]->m_maxVel
+		//m_entities.push_back(new Player(215.5f, new Texture("./bin/textures/crate.png"), rootTransform, idCount++, "Player"));
 	}
 }

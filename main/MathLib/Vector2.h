@@ -40,11 +40,13 @@ public:
 	
 	void operator+=(Vector2& rhs);
 	Vector2 operator*(Vector2& rhs);
+	Vector2 operator-(float& rhs);
 	bool operator==(Vector2& rhs);
 
 	Vector2 perpendicular(Vector2& rhs);
 
 	//Distance between two vectors using square root
+	float Vector2::Distance(Vector2 a_pos);
 	float Vector2::Distance(Vector2 a_pos1, Vector2 a_pos2);
 	//Distance between two float sets using square root
 	float Vector2::Distance(float a_pos1X, float a_pos1Y, float a_pos2X, float a_pos2Y);

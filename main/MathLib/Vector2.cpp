@@ -61,6 +61,16 @@ Vector2 Vector2::operator*(Vector2 & rhs)
 
 	return vec3;
 }
+Vector2 Vector2::operator-(float& rhs)
+{
+	Vector2 newVec;
+
+	newVec.x = x - rhs;
+	newVec.y = y - rhs;
+
+
+	return newVec;
+}
 void Vector2::operator+=(Vector2 & rhs)
 {
 	x = x + rhs.x;
@@ -112,6 +122,14 @@ Vector2 Vector2::perpendicular(Vector2 & rhs)
 {
 	Vector2 perp(-rhs.y, rhs.x);
 	return perp;
+}
+
+float Vector2::Distance(Vector2 a_pos)
+{
+	float m_distanceX = (this->x - a_pos.x) * (this->x - a_pos.x);
+	float m_distanceY = (this->y - a_pos.y) * (this->y - a_pos.y);
+
+	return sqrt(m_distanceX + m_distanceY);
 }
 
 float Vector2::Distance(Vector2 a_pos1, Vector2 a_pos2)

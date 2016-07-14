@@ -1,34 +1,24 @@
-c:\users\james\desktop\2dstarterproject\debug\vc140.pdb
-c:\users\james\desktop\2dstarterproject\debug\vc140.idb
-c:\users\james\desktop\2dstarterproject\debug\baseentity.obj
-c:\users\james\desktop\2dstarterproject\debug\collisionmanager.obj
-c:\users\james\desktop\2dstarterproject\debug\font.obj
-c:\users\james\desktop\2dstarterproject\debug\spritebatch.obj
-c:\users\james\desktop\2dstarterproject\debug\texture.obj
-c:\users\james\desktop\2dstarterproject\debug\transform.obj
-c:\users\james\desktop\2dstarterproject\debug\inputmanager.obj
-c:\users\james\desktop\2dstarterproject\debug\application2d.obj
-c:\users\james\desktop\2dstarterproject\debug\baseapplication.obj
-c:\users\james\desktop\2dstarterproject\debug\main.obj
-c:\users\james\desktop\2dstarterproject\debug\player.obj
-c:\users\james\desktop\2dstarterproject\debug\entitymanager.obj
-c:\users\james\desktop\2dstarterproject\debug\gl_core_4_4.obj
-c:\users\james\desktop\2dstarterproject\debug\aieopengl.vcxprojresolveassemblyreference.cache
-c:\users\james\desktop\2dstarterproject\debug\mathlib.pdb
-c:\users\james\desktop\2dstarterproject\bin\aieopengl_d.pdb
-c:\users\james\desktop\2dstarterproject\debug\aieopengl.tlog\cl.command.1.tlog
-c:\users\james\desktop\2dstarterproject\debug\aieopengl.tlog\cl.read.1.tlog
-c:\users\james\desktop\2dstarterproject\debug\aieopengl.tlog\cl.write.1.tlog
-c:\users\james\desktop\2dstarterproject\debug\aieopengl.tlog\link-cvtres.read.1.tlog
-c:\users\james\desktop\2dstarterproject\debug\aieopengl.tlog\link-cvtres.write.1.tlog
-c:\users\james\desktop\2dstarterproject\debug\aieopengl.tlog\link-rc.read.1.tlog
-c:\users\james\desktop\2dstarterproject\debug\aieopengl.tlog\link-rc.write.1.tlog
-c:\users\james\desktop\2dstarterproject\debug\aieopengl.tlog\link.4212-cvtres.read.1.tlog
-c:\users\james\desktop\2dstarterproject\debug\aieopengl.tlog\link.4212-cvtres.write.1.tlog
-c:\users\james\desktop\2dstarterproject\debug\aieopengl.tlog\link.4212-rc.read.1.tlog
-c:\users\james\desktop\2dstarterproject\debug\aieopengl.tlog\link.4212-rc.write.1.tlog
-c:\users\james\desktop\2dstarterproject\debug\aieopengl.tlog\link.4212.read.1.tlog
-c:\users\james\desktop\2dstarterproject\debug\aieopengl.tlog\link.4212.write.1.tlog
-c:\users\james\desktop\2dstarterproject\debug\aieopengl.tlog\link.command.1.tlog
-c:\users\james\desktop\2dstarterproject\debug\aieopengl.tlog\link.read.1.tlog
-c:\users\james\desktop\2dstarterproject\debug\aieopengl.tlog\link.write.1.tlog
+c:\users\james.creaton\desktop\ai framework\debug\vc140.pdb
+c:\users\james.creaton\desktop\ai framework\debug\vc140.idb
+c:\users\james.creaton\desktop\ai framework\debug\agent.obj
+c:\users\james.creaton\desktop\ai framework\debug\baseapplication.obj
+c:\users\james.creaton\desktop\ai framework\debug\baseentity.obj
+c:\users\james.creaton\desktop\ai framework\debug\collisionmanager.obj
+c:\users\james.creaton\desktop\ai framework\debug\entitymanager.obj
+c:\users\james.creaton\desktop\ai framework\debug\font.obj
+c:\users\james.creaton\desktop\ai framework\debug\graphnode.obj
+c:\users\james.creaton\desktop\ai framework\debug\ibehaviour.obj
+c:\users\james.creaton\desktop\ai framework\debug\inputmanager.obj
+c:\users\james.creaton\desktop\ai framework\debug\main.obj
+c:\users\james.creaton\desktop\ai framework\debug\player.obj
+c:\users\james.creaton\desktop\ai framework\debug\polygon.obj
+c:\users\james.creaton\desktop\ai framework\debug\seekbehaviour.obj
+c:\users\james.creaton\desktop\ai framework\debug\spritebatch.obj
+c:\users\james.creaton\desktop\ai framework\debug\texture.obj
+c:\users\james.creaton\desktop\ai framework\debug\transform.obj
+c:\users\james.creaton\desktop\ai framework\debug\wanderbehaviour.obj
+c:\users\james.creaton\desktop\ai framework\debug\aabbcollider.obj
+c:\users\james.creaton\desktop\ai framework\debug\mathlib.pdb
+c:\users\james.creaton\desktop\ai framework\debug\aieopengl.tlog\cl.command.1.tlog
+c:\users\james.creaton\desktop\ai framework\debug\aieopengl.tlog\cl.read.1.tlog
+c:\users\james.creaton\desktop\ai framework\debug\aieopengl.tlog\cl.write.1.tlog

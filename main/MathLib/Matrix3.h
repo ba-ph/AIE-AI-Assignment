@@ -33,10 +33,6 @@ public:
 	// M = M x M
 	Matrix3 operator*(const Matrix3& rhs);
 
-
-	//extra
-	Vector2 GetPos();
-
 	operator float*();
 
 	void setRotationX(float a_rad);

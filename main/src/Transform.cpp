@@ -37,7 +37,7 @@ void Transform::SetTranslation(const Vector2 & a_translation, Matrix3& a_transla
 	a_translateMatrix.m12 = a_translation.y;
 }
 
-void Transform::SetTranslationLocal(const Vector2 & a_translation)
+void Transform::SetTranslationLocalMat(const Vector2 & a_translation)
 {
 	localMatrix.m02 = a_translation.x;
 	localMatrix.m12 = a_translation.y;
@@ -59,9 +59,9 @@ void Transform::SetRotation(float a_rad, Matrix3& a_rotateMatrix)
 	a_rotateMatrix.m11 = cos(a_rad);
 }
 
-void Transform::SetParent(Transform * a_parent)
+void Transform::SetParent(Transform& a_parent)
 {
-	m_parent = a_parent;
+	m_parent = &a_parent;
 	m_parent->AddChild(*this);
 }
 
@@ -89,9 +89,13 @@ void Transform::UpdateTransforms()
 	}
 }
 
-Vector2 Transform::GetPosition()
-{
-	return localMatrix.GetPos();
+Vector2 Transform::TransformedPoint(Vector2 a_rhs) {
+	// Ignores W
+	Vector2 newVector2;
+	newVector2.x = GetLocalMatrix().m[0] * a_rhs.x + GetLocalMatrix().m[3] * a_rhs.y + 1.0f*GetLocalMatrix().m[6];
+	newVector2.y = GetLocalMatrix().m[1] * a_rhs.x + GetLocalMatrix().m[4] * a_rhs.y + 1.0f*GetLocalMatrix().m[7];
+
+	return newVector2;
 }
 
 void Transform::AddChild(Transform & a_child)

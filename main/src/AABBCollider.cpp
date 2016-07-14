@@ -1,6 +1,6 @@
 #include "AABBCollider.h"
 #include "Polygon.h"
-#include "src\SpriteBatch.h"
+#include "SpriteBatch.h"
 
 
 AABBCollider::AABBCollider()
@@ -17,7 +17,6 @@ AABBCollider::AABBCollider(float a_minX, float a_maxX, float a_minY, float a_max
 {
 
 }
-
 
 AABBCollider::~AABBCollider()
 {
@@ -40,7 +39,7 @@ void AABBCollider::Draw(SpriteBatch * a_spriteBatch)
 
 void AABBCollider::Update()
 {
-	Polygon m_transformedPolygon = m_polygon->TransformPolygon();
+	Polygon m_transformedPolygon = m_polygon->TransformedPolygon();
 	m_min = m_transformedPolygon.Min();
 	m_max = m_transformedPolygon.Max();
 }

@@ -1,6 +1,7 @@
 #pragma once
 struct GLFWwindow;
 
+class Vector2;
 class InputManager;
 class BaseApplication {
 public:
@@ -24,6 +25,7 @@ protected:
 	bool isKeyPressed(int key);
 
 	bool isMouseButtonPressed(int button);
+	void getCursorPositionVec(Vector2& a_mousePos);
 	void getCursorPosition(int& x, int& y);
 
 	bool hasWindowClosed();

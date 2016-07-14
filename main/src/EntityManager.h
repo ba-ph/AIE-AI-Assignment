@@ -6,9 +6,6 @@
 #include "Transform.h"
 #include "glfw3.h"
 #include "SpriteBatch.h"
-#include "Player2.h"
-#include "Ball.h"
-
 class EntityManager
 {
 public:
@@ -24,5 +21,6 @@ public:
 
 private:
 	std::vector<BaseEntity*> m_entities;
+	int idCount;
 };
 

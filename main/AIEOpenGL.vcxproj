@@ -11,24 +11,32 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\Ball.cpp" />
+    <ClCompile Include="src\AABBCollider.cpp" />
+    <ClCompile Include="src\Agent.cpp" />
     <ClCompile Include="src\BaseApplication.cpp" />
     <ClCompile Include="src\BaseEntity.cpp" />
     <ClCompile Include="src\CollisionManager.cpp" />
     <ClCompile Include="src\EntityManager.cpp" />
     <ClCompile Include="src\Font.cpp" />
     <ClCompile Include="src\gl_core_4_4.c" />
+    <ClCompile Include="src\Graph.cpp" />
+    <ClCompile Include="src\GraphEdge.cpp" />
+    <ClCompile Include="src\GraphNode.cpp" />
+    <ClCompile Include="src\IBehaviour.cpp" />
     <ClCompile Include="src\inputmanager.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\Application2D.cpp" />
     <ClCompile Include="src\Player.cpp" />
-    <ClCompile Include="src\Player2.cpp" />
+    <ClCompile Include="src\Polygon.cpp" />
+    <ClCompile Include="src\SeekBehaviour.cpp" />
     <ClCompile Include="src\SpriteBatch.cpp" />
     <ClCompile Include="src\Texture.cpp" />
     <ClCompile Include="src\Transform.cpp" />
+    <ClCompile Include="src\WanderBehaviour.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\Ball.h" />
+    <ClInclude Include="src\AABBCollider.h" />
+    <ClInclude Include="src\Agent.h" />
     <ClInclude Include="src\BaseApplication.h" />
     <ClInclude Include="src\BaseEntity.h" />
     <ClInclude Include="src\CollisionManager.h" />
@@ -36,12 +44,18 @@
     <ClInclude Include="src\Font.h" />
     <ClInclude Include="src\gl_core_4_4.h" />
     <ClInclude Include="src\Application2D.h" />
+    <ClInclude Include="src\Graph.h" />
+    <ClInclude Include="src\GraphEdge.h" />
+    <ClInclude Include="src\GraphNode.h" />
+    <ClInclude Include="src\IBehaviour.h" />
     <ClInclude Include="src\inputmanager.h" />
     <ClInclude Include="src\Player.h" />
-    <ClInclude Include="src\Player2.h" />
+    <ClInclude Include="src\Polygon.h" />
+    <ClInclude Include="src\SeekBehaviour.h" />
     <ClInclude Include="src\SpriteBatch.h" />
     <ClInclude Include="src\Texture.h" />
     <ClInclude Include="src\Transform.h" />
+    <ClInclude Include="src\WanderBehaviour.h" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="MathLib\MathLib.vcxproj">

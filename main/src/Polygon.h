@@ -1,24 +1,29 @@
 #pragma once
-#include <vector>
-#include "src\Transform.h"
 #include "Vector2.h"
-#include "src\SpriteBatch.h"
+#include "SpriteBatch.h"
+#include "Transform.h"
+#include <vector>
+
+
 class Polygon
 {
 public:
+	Polygon();
 	Polygon(Transform& a_transform);
 	~Polygon();
 
+
 	void addVertex(const Vector2& a_vec);
-	void Draw(SpriteBatch* a_spriteBatch);
+	void Draw(SpriteBatch* a_sprBatch);
+
+
 	Vector2 Min();
 	Vector2 Max();
-	Polygon TransformPolygon();
-	
 
 
+	Polygon TransformedPolygon();
+	Transform* m_transform;
 private:
 	std::vector<Vector2> m_verticies;
-	Transform* m_transform;
 };
 

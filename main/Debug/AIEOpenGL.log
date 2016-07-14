@@ -1,4 +1,6 @@
-﻿  Ball.cpp
-c:\users\james.creaton\desktop\2dstarterproject\mathlib\vector2.h(53): warning C4521: 'Vector2': multiple copy constructors specified
-c:\users\james.creaton\desktop\2dstarterproject\mathlib\vector3.h(40): warning C4521: 'Vector3': multiple copy constructors specified
-  AIEOpenGL.vcxproj -> C:\Users\James.Creaton\Desktop\2DStarterProject\bin\AIEOpenGL_d.exe
+﻿  Application2D.cpp
+c:\users\james.creaton\desktop\ai framework\mathlib\vector2.h(55): warning C4521: 'Vector2': multiple copy constructors specified
+c:\users\james.creaton\desktop\ai framework\mathlib\vector3.h(40): warning C4521: 'Vector3': multiple copy constructors specified
+c:\users\james.creaton\desktop\ai framework\src\application2d.cpp(30): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+c:\users\james.creaton\desktop\ai framework\src\application2d.cpp(100): warning C4018: '<': signed/unsigned mismatch
+  AIEOpenGL.vcxproj -> C:\Users\James.Creaton\Desktop\Ai framework\bin\AIEOpenGL_d.exe
