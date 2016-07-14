@@ -1,0 +1,4 @@
+﻿  Ball.cpp
+c:\users\james.creaton\desktop\2dstarterproject\mathlib\vector2.h(53): warning C4521: 'Vector2': multiple copy constructors specified
+c:\users\james.creaton\desktop\2dstarterproject\mathlib\vector3.h(40): warning C4521: 'Vector3': multiple copy constructors specified
+  AIEOpenGL.vcxproj -> C:\Users\James.Creaton\Desktop\2DStarterProject\bin\AIEOpenGL_d.exe

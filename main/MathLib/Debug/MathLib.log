@@ -1,0 +1,16 @@
+﻿  Matrix3.cpp
+c:\users\james.creaton\desktop\2dstarterproject\mathlib\vector2.h(53): warning C4521: 'Vector2': multiple copy constructors specified
+c:\users\james.creaton\desktop\2dstarterproject\mathlib\vector3.h(40): warning C4521: 'Vector3': multiple copy constructors specified
+c:\users\james.creaton\desktop\2dstarterproject\mathlib\matrix3.cpp(107): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+c:\users\james.creaton\desktop\2dstarterproject\mathlib\matrix3.cpp(108): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+c:\users\james.creaton\desktop\2dstarterproject\mathlib\matrix3.cpp(109): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+c:\users\james.creaton\desktop\2dstarterproject\mathlib\matrix3.cpp(110): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+c:\users\james.creaton\desktop\2dstarterproject\mathlib\matrix3.cpp(115): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+c:\users\james.creaton\desktop\2dstarterproject\mathlib\matrix3.cpp(116): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+c:\users\james.creaton\desktop\2dstarterproject\mathlib\matrix3.cpp(117): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+c:\users\james.creaton\desktop\2dstarterproject\mathlib\matrix3.cpp(118): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+c:\users\james.creaton\desktop\2dstarterproject\mathlib\matrix3.cpp(123): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+c:\users\james.creaton\desktop\2dstarterproject\mathlib\matrix3.cpp(124): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+c:\users\james.creaton\desktop\2dstarterproject\mathlib\matrix3.cpp(125): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+c:\users\james.creaton\desktop\2dstarterproject\mathlib\matrix3.cpp(126): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+  MathLib.vcxproj -> C:\Users\James.Creaton\Desktop\2DStarterProject\Debug\MathLib.lib
