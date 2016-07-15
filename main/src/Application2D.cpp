@@ -14,8 +14,6 @@
 #include "Graph.h"
 #include "GraphNode.h"
 
-#include <Windows.h>
-
 
 
 
@@ -32,9 +30,30 @@ bool Application2D::startup() {
 	srand(time(NULL));
 	createWindow("A.I.E Project", 1280, 910);
 	m_spriteBatch = new SpriteBatch();
+	m_font = new Font("./bin/font/consolas.ttf", 15);
 
 	GetInput().SetWindowInstance(m_window);
 	getCursorPositionVec(m_mousePos);
+
+	//Create a hexagon
+	Polygon hexagon(agent.GetTransform());
+	hexagon.addVertex(Vector2(-50, 30));
+	hexagon.addVertex(Vector2(0, 50));
+	hexagon.addVertex(Vector2(50, 30));
+	hexagon.addVertex(Vector2(50, -30));
+	hexagon.addVertex(Vector2(0, -50));
+	hexagon.addVertex(Vector2(-50, -30));
+
+	//Set up agent 
+	agent.SetPolygon(hexagon);
+	agent.GetTransform().SetParent(rootTransform);
+	agent.GetTransform().Scale(0.5f);
+	agent.SetPosition(Vector2(200.0f, 200.0f));
+	agent.m_maxVelocity = 400.0f;
+
+	//Assign behaviour
+	agent.AddBehaviour(&pathBehaviour);
+
 
 	// Create a graph
 	pGraph = new Graph();
@@ -54,22 +73,8 @@ void Application2D::shutdown() {
 
 bool Application2D::update(float deltaTime) {
 
-	// close the application if the window closes or we press escape
-	if (hasWindowClosed() || isKeyPressed(GLFW_KEY_ESCAPE))
-		return false;
-
 	getCursorPositionVec(m_mousePos);
-
-	//Time::UpdateDeltaTime(deltaTime);
 	rootTransform.UpdateTransforms();
-
-	if (isMouseButtonPressed(1))
-	{
-		GraphNode* temp = pGraph->GetClosestNode(m_mousePos);
-
-		pGraph->RemoveNode(*temp);
-	}
-	//object1.Update(deltaTime);
 
 	if (isKeyPressed(GLFW_KEY_G))
 	{
@@ -80,7 +85,17 @@ bool Application2D::update(float deltaTime) {
 		pGraph->GraphEnabled == true;
 	}
 
-	
+	if (isMouseButtonPressed(1))
+	{
+		GraphNode* temp = pGraph->GetClosestNode(m_mousePos);
+
+		pGraph->RemoveNode(*temp);
+	}
+
+
+	// close the application if the window closes or we press escape
+	if (hasWindowClosed() || isKeyPressed(GLFW_KEY_ESCAPE))
+		return false;
 
 	// the applciation closes if we return false
 	return true;
@@ -93,6 +108,11 @@ void Application2D::draw() {
 
 	// begin drawing sprites
 	m_spriteBatch->begin();
+
+	//Display menu
+	m_spriteBatch->drawText(m_font, "Press G To Toggle Graph", 935.0f, 700.0f);
+	m_spriteBatch->drawText(m_font, "Right Click To Remove Nodes", 935.0f, 670.0f);
+
 
 	//Calculate path                                 
 	//std::list<Vector2> path = pGraph->Dijkstra(pGraph->GetNode(14), pGraph->GetNode(64));

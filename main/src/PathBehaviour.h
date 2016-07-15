@@ -12,6 +12,7 @@ public:
 	Vector2* m_targetPos;
 
 	virtual void Update(Agent* a_agent);
+	virtual void Draw(float deltaTime);
 
 };
 

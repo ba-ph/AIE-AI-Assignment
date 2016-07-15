@@ -13,10 +13,10 @@ class Graph;
 class GraphNode;
 
 #include "Agent.h"
-#include "WanderBehaviour.h"
-#include "SeekBehaviour.h"
+#include "PathBehaviour.h"
 #include "IBehaviour.h"
 #include <vector>
+#include "Polygon.h"
 
 class Application2D : public BaseApplication {
 public:
@@ -46,4 +46,8 @@ private:
 
 	Transform rootTransform;
 
+	
+	PathBehaviour pathBehaviour;
+
+	Agent agent;
 };

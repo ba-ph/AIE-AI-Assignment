@@ -11,7 +11,6 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="PathBehaviour.cpp" />
     <ClCompile Include="src\AABBCollider.cpp" />
     <ClCompile Include="src\Agent.cpp" />
     <ClCompile Include="src\BaseApplication.cpp" />
@@ -27,6 +26,7 @@
     <ClCompile Include="src\inputmanager.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\Application2D.cpp" />
+    <ClCompile Include="src\PathBehaviour.cpp" />
     <ClCompile Include="src\Player.cpp" />
     <ClCompile Include="src\Polygon.cpp" />
     <ClCompile Include="src\SeekBehaviour.cpp" />
@@ -36,7 +36,6 @@
     <ClCompile Include="src\WanderBehaviour.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="PathBehaviour.h" />
     <ClInclude Include="src\AABBCollider.h" />
     <ClInclude Include="src\Agent.h" />
     <ClInclude Include="src\BaseApplication.h" />
@@ -51,6 +50,7 @@
     <ClInclude Include="src\GraphNode.h" />
     <ClInclude Include="src\IBehaviour.h" />
     <ClInclude Include="src\inputmanager.h" />
+    <ClInclude Include="src\PathBehaviour.h" />
     <ClInclude Include="src\Player.h" />
     <ClInclude Include="src\Polygon.h" />
     <ClInclude Include="src\SeekBehaviour.h" />
