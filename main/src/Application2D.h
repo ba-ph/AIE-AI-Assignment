@@ -45,11 +45,5 @@ private:
 	Graph* pGraph;
 
 	Transform rootTransform;
-	
-    SeekBehaviour seekBehaviour;
-	WanderBehaviour wanderBehaviour;
 
-	//std::vector<GraphNode*> m_mapNodes;
-
-	Agent object1;
 };

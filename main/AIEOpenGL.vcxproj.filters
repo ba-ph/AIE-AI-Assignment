@@ -126,6 +126,9 @@
     <ClCompile Include="src\GraphEdge.cpp">
       <Filter>Engine\Managers\Graphs\GraphEdges</Filter>
     </ClCompile>
+    <ClCompile Include="PathBehaviour.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\gl_core_4_4.h">
@@ -190,6 +193,9 @@
     </ClInclude>
     <ClInclude Include="src\GraphEdge.h">
       <Filter>Engine\Managers\Graphs\GraphEdges</Filter>
+    </ClInclude>
+    <ClInclude Include="PathBehaviour.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

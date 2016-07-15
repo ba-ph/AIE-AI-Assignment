@@ -27,6 +27,8 @@ void Agent::Update(float deltaTime)
 		(*iter)->Update(this);
 	}
 
+
+
 	BaseEntity::Update(deltaTime);
 
 }

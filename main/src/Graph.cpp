@@ -2,6 +2,7 @@
 
 Graph::Graph()
 {
+	GraphEnabled == true;
 }
 
 
@@ -28,10 +29,12 @@ void Graph::RemoveEdge(GraphNode & a_start, GraphNode & a_end)
 	}
 }
 
-GraphNode * Graph::GetNode(int a_node)
+GraphNode* Graph::GetNode(int a_node)
 {
-	std::list<GraphNode*>::iterator iter = m_nodes.begin(a_node);
-	return m_nodes.
+	std::list<GraphNode*>::iterator iter = m_nodes.begin();
+	std::advance(iter, a_node);
+
+	return (*iter);
 }
 
 void Graph::RemoveNode(GraphNode& a_node)
@@ -66,21 +69,25 @@ GraphEdge* Graph::AddEdge(GraphNode & a_start, GraphNode & a_end, float a_cost)
 
 void Graph::Draw(SpriteBatch & a_spritebatch)
 {
-	std::list<GraphNode*>::iterator iter = m_nodes.begin();
-
-	for (; iter != m_nodes.end(); iter++)
+	if (GraphEnabled)
 	{
-		Vector2 nodePos = (*iter)->data;
+		std::list<GraphNode*>::iterator iter = m_nodes.begin();
 
-		DrawCircle(a_spritebatch, nodePos, 20.0f);
-
-		std::list<GraphEdge*>::iterator edgeIter = (*iter)->m_edges.begin();
-		for (; edgeIter != (*iter)->m_edges.end(); edgeIter++)
+		for (; iter != m_nodes.end(); iter++)
 		{
-			Vector2 v1 = (*edgeIter)->m_start->data;
-			Vector2 v2 = (*edgeIter)->m_end->data;
+			Vector2 nodePos = (*iter)->data;
+			//a_spritebatch.setSpriteColor(0.2f, 0.1f, 1, 1);
+			DrawCircle(a_spritebatch, nodePos, 5.0f);
+			//a_spritebatch.setSpriteColor(1, 1, 1, 1);
 
-			a_spritebatch.drawLine(v1.x, v1.y, v2.x, v2.y, 2.0f);
+			std::list<GraphEdge*>::iterator edgeIter = (*iter)->m_edges.begin();
+			for (; edgeIter != (*iter)->m_edges.end(); edgeIter++)
+			{
+				Vector2 v1 = (*edgeIter)->m_start->data;
+				Vector2 v2 = (*edgeIter)->m_end->data;
+
+				a_spritebatch.drawLine(v1.x, v1.y, v2.x, v2.y, 1.0f);
+			}
 		}
 	}
 }
@@ -102,7 +109,27 @@ void Graph::DrawCircle(SpriteBatch & a_spritebatch, Vector2 pos, float radius)
 	}
 }
 
-std::list<GraphNode*> Graph::FindPathBetween(GraphNode * start, GraphNode * end)
+GraphNode * Graph::GetClosestNode(const Vector2 a_pos)
+{
+	if (m_nodes.size() == 0)
+		return nullptr;
+
+	GraphNode* closestNode = *m_nodes.begin();
+	float closestDist = (a_pos - closestNode->data).SqaureMagnitude();
+
+	for (auto nodeIter = ++m_nodes.begin(); nodeIter != m_nodes.end(); nodeIter++)
+	{
+		float dist = (a_pos - (*nodeIter)->data).SqaureMagnitude();
+		if (dist < closestDist)
+		{
+			closestNode = *nodeIter;
+			closestDist = dist;
+		}
+	}
+	return closestNode;
+}
+
+std::list<Vector2> Graph::Dijkstra(GraphNode * start, GraphNode * end)
 {
 	std::list<GraphNode*>::iterator nodeIter = m_nodes.begin();
 
@@ -110,6 +137,7 @@ std::list<GraphNode*> Graph::FindPathBetween(GraphNode * start, GraphNode * end)
 	{
 		(*nodeIter)->gScore = std::numeric_limits<float>::max();
 		(*nodeIter)->previous = nullptr;
+		(*nodeIter)->IsOnStack = false;
 		(*nodeIter)->Traversed = false;
 		(*nodeIter)->order = 0;
 	}
@@ -124,7 +152,7 @@ std::list<GraphNode*> Graph::FindPathBetween(GraphNode * start, GraphNode * end)
 
 	while (!PriorityQueue.empty())
 	{
-		PriorityQueue.sort(CompareGScore(start, end));
+		PriorityQueue.sort(CompareGScore);
 
 		GraphNode* currnode = *PriorityQueue.begin();
 
@@ -133,6 +161,7 @@ std::list<GraphNode*> Graph::FindPathBetween(GraphNode * start, GraphNode * end)
 
 		PriorityQueue.remove(currnode);
 		currnode->Traversed = true;
+
 
 		std::list<GraphEdge*>::iterator edgeIter = currnode->m_edges.begin();
 
@@ -146,25 +175,126 @@ std::list<GraphNode*> Graph::FindPathBetween(GraphNode * start, GraphNode * end)
 				{
 					(*edgeIter)->m_end->gScore = gScore;
 					(*edgeIter)->m_end->previous = currnode;
-				}
-				if ((*edgeIter)->m_end->IsOnStack == false)
-				{
-					PriorityQueue.push_back((*edgeIter)->m_end);
-					(*edgeIter)->m_end->IsOnStack = true;
+			
+					if ((*edgeIter)->m_end->IsOnStack == false)
+					{
+						PriorityQueue.push_back((*edgeIter)->m_end);
+						(*edgeIter)->m_end->IsOnStack = true;
+					}	
 				}
 			}
 		}
-
-		std::list<Vector2> path;
-
-		while (currnode->previous != start)
-		{
-			path.push_front(currnode->data);
-
-			currnode = currnode->previous;
-		}
-
-		path.push_front(start->data);
 	}
 
+	std::list<Vector2> path;
+
+	GraphNode* currNode = end;
+
+	while (currNode != start)
+	{
+		path.push_front(currNode->data);
+
+		currNode = currNode->previous;
+	}
+
+	path.push_front(start->data);
+
+	return path;
+}
+
+std::list<Vector2> Graph::AStar(GraphNode * start, GraphNode * end)
+{
+	if (start == nullptr || end == nullptr)
+	{
+		return std::list<Vector2>();
+	}
+
+	if (start == end)
+	{
+		std::list<Vector2> path;
+		path.push_back(start->data);
+		return path;
+	}
+
+	std::list<GraphNode*>::iterator nodeIter = m_nodes.begin();
+
+	// Iterate through all nodes and reset their values
+	for (; nodeIter != m_nodes.end(); nodeIter++)
+	{
+		
+		(*nodeIter)->previous = nullptr;
+		(*nodeIter)->IsOnStack = false;
+		(*nodeIter)->Traversed = false;
+		(*nodeIter)->order = 0;
+		(*nodeIter)->gScore = std::numeric_limits<float>::max();
+		(*nodeIter)->fScore = std::numeric_limits<float>::max();
+		(*nodeIter)->hScore = DistanceHeuristic((*nodeIter), end);
+	}
+
+	//Create a new list that will act as a priority queue
+	std::list<GraphNode*> PriorityQueue;
+
+	//Push the first node onto the queue
+	PriorityQueue.push_back(start);
+	start->IsOnStack = true;
+
+	start->previous = start;
+	start->gScore = 0.0f;
+	
+
+	while (!PriorityQueue.empty())
+	{
+		PriorityQueue.sort(CompareFScore);
+
+		GraphNode* currnode = *PriorityQueue.begin();
+
+		if (currnode == end)
+			break;
+
+		PriorityQueue.remove(currnode);
+		currnode->Traversed = true;
+
+
+		std::list<GraphEdge*>::iterator edgeIter = currnode->m_edges.begin();
+
+		for (; edgeIter != currnode->m_edges.end(); edgeIter++)
+		{
+			if ((*edgeIter)->m_end->Traversed == false)
+			{
+				float gScore = currnode->gScore + (*edgeIter)->m_cost;
+
+				if (gScore < (*edgeIter)->m_end->gScore)
+				{
+					(*edgeIter)->m_end->gScore = gScore;
+					(*edgeIter)->m_end->previous = currnode;
+
+					if ((*edgeIter)->m_end->IsOnStack == false)
+					{
+						PriorityQueue.push_back((*edgeIter)->m_end);
+						(*edgeIter)->m_end->IsOnStack = true;
+					}
+				}
+			}
+		}
+	}
+
+	std::list<Vector2> path;
+
+	GraphNode* currNode = end;
+
+	while (currNode != start)
+	{
+		path.push_front(currNode->data);
+
+		currNode = currNode->previous;
+	}
+
+	path.push_front(start->data);
+
+	return path;
+}
+
+bool Graph::DistanceHeuristic(GraphNode * start, GraphNode * end)
+{
+	return (end->data - start->data).SqaureMagnitude();
 }

@@ -25,6 +25,8 @@ public:
 	std::list<GraphEdge*> m_edges;
 
 	float gScore;
+	float hScore;
+	float fScore;
 	GraphNode* previous;
 
 	bool Traversed;
@@ -35,4 +37,5 @@ public:
 };
 
 bool CompareGScore(const GraphNode* a, const GraphNode* b);
+bool CompareFScore(const GraphNode* a, const GraphNode* b);
 

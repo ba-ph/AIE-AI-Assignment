@@ -14,6 +14,8 @@
 #include "Graph.h"
 #include "GraphNode.h"
 
+#include <Windows.h>
+
 
 
 
@@ -28,49 +30,16 @@ Application2D::~Application2D() {
 bool Application2D::startup() {
 	
 	srand(time(NULL));
-	createWindow("A.I.E Project", 1280, 720);
+	createWindow("A.I.E Project", 1280, 910);
 	m_spriteBatch = new SpriteBatch();
 
 	GetInput().SetWindowInstance(m_window);
 	getCursorPositionVec(m_mousePos);
 
-	//Create a hexagon
-	Polygon hexagon(object1.GetTransform());
-	hexagon.addVertex(Vector2(-50, 30));
-	hexagon.addVertex(Vector2(0, 50));
-	hexagon.addVertex(Vector2(50, 30));
-	hexagon.addVertex(Vector2(50, -30));
-	hexagon.addVertex(Vector2(0, -50));
-	hexagon.addVertex(Vector2(-50, -30));
-
-	//set up object1
-	object1.SetPolygon(hexagon);
-	object1.GetTransform().SetParent(rootTransform);
-	object1.GetTransform().Scale(0.5f);
-	object1.SetPosition(Vector2(200.0f, 200.0f));
-	object1.m_maxVelocity = 600.0f;	
-
-	//setup behaviours
-
-	//Seek
-	seekBehaviour.m_targetPos = &m_mousePos;
-
-	//Wander
-	wanderBehaviour.wanderDistance = 100.0f;
-	wanderBehaviour.wanderRadius = 100.0f;
-	wanderBehaviour.jitterAmount = 20.0f;
-
-	
-	//assign them
-	object1.AddBehaviour(&seekBehaviour);
-
 	// Create a graph
 	pGraph = new Graph();
 	// Fill Graph
 	CreateGraph();
-
-	//std::list<Vector2> Path = pGraph->FindPathBetween(pGraph->m_nodes.begin(), pGraph->m_nodes.end())
-
 
 	return true;
 }
@@ -85,39 +54,33 @@ void Application2D::shutdown() {
 
 bool Application2D::update(float deltaTime) {
 
-	getCursorPositionVec(m_mousePos);
+	// close the application if the window closes or we press escape
+	if (hasWindowClosed() || isKeyPressed(GLFW_KEY_ESCAPE))
+		return false;
 
-	//if (isMouseButtonPressed(0))
-	//{
-	//	getCursorPositionVec(m_mousePos);
-	//	//m_mapNodes.push_back(pGraph->AddNode(m_mousePos));
-	//}
-	//if (isMouseButtonPressed(1))
-	//{
-	//	//getCursorPositionVec(m_mousePos);
-	//	//iterate through all nodes and check distance
-	//	int i = 0;
-	//	while (i < pGraph->m_nodes.size())
-	//	{
-	//		if (m_mousePos.Distance(pGraph->m_nodes[]  ->data) < 20.0f)
-	//		{
-	//			//Call remove node from Graph
-	//			pGraph->RemoveNode(*m_mapNodes[i]);
-	//			m_mapNodes.erase(m_mapNodes.begin() + i);
-	//			break;
-	//		}
-	//		i++;
-	//	}	
-	//
+	getCursorPositionVec(m_mousePos);
 
 	//Time::UpdateDeltaTime(deltaTime);
 	rootTransform.UpdateTransforms();
 
+	if (isMouseButtonPressed(1))
+	{
+		GraphNode* temp = pGraph->GetClosestNode(m_mousePos);
+
+		pGraph->RemoveNode(*temp);
+	}
 	//object1.Update(deltaTime);
 
-	// close the application if the window closes or we press escape
-	if (hasWindowClosed() || isKeyPressed(GLFW_KEY_ESCAPE))
-		return false;
+	if (isKeyPressed(GLFW_KEY_G))
+	{
+		if (pGraph->GraphEnabled)
+		{
+			pGraph->GraphEnabled == false;
+		}
+		pGraph->GraphEnabled == true;
+	}
+
+	
 
 	// the applciation closes if we return false
 	return true;
@@ -131,29 +94,33 @@ void Application2D::draw() {
 	// begin drawing sprites
 	m_spriteBatch->begin();
 
-	//Calculate path
-	std::list<Vector2> path = pGraph->FindPathBetween(pGraph->m_nodes.begin(), pGraph->m_nodes.end());
-
-	//Draw the path
-	auto currPos = path.begin();
-
-	for (; currPos != path.end(); currPos++)
+	//Calculate path                                 
+	//std::list<Vector2> path = pGraph->Dijkstra(pGraph->GetNode(14), pGraph->GetNode(64));
+	if (pGraph->m_nodes.size() > 2)
 	{
-		//Set nextPos to currPos + 1
-		auto nextPos = currPos;
-		nextPos++;
+		std::list<Vector2> path = pGraph->AStar(pGraph->GetNode(0), pGraph->GetNode(pGraph->m_nodes.size() -1));
 
-		//Check nextPos isn't end of our path
-		if (nextPos == path.end())
-			break;
+		//Draw the path
+		auto currPos = path.begin();
+		for (; currPos != path.end(); currPos++)
+		{
+			//Set nextPos to currPos + 1
+			auto nextPos = currPos;
+			nextPos++;
 
+			//Check nextPos isn't end of our path
+			if (nextPos == path.end())
+				break;
 
-		Vector2 p1 = (*currPos);
-		Vector2 p2 = (*nextPos);
-		m_spriteBatch->drawLine(p1.x, p1.y, p2.x, p2.y, 0.5f);
-
-
+			Vector2 p1 = (*currPos);
+			Vector2 p2 = (*nextPos);
+			m_spriteBatch->setSpriteColor(1, 0.0f, 0.0f, 5.0f);
+			m_spriteBatch->drawLine(p1.x, p1.y, p2.x, p2.y, 2.0f);
+		}
 	}
+	
+
+	m_spriteBatch->setSpriteColor(1, 1, 1, 1);
 
 	//m_spriteBatch->drawSprite(m_bgTexture, 0, 0);
 
@@ -166,38 +133,46 @@ void Application2D::draw() {
 
 void Application2D::CreateGraph()
 {
-	const int graphSize = 20;
-	GraphNode* grid[graphSize][graphSize];
+	const int cols = 13;
+	const int rows = 13;
+	//const int graphSize = 30;
 
-	for (int i = 0; i <graphSize; i++)
+	GraphNode* grid[cols][rows];
+
+	for (int i = 0; i <cols; i++)
 	{
-		for (int j = 0; j < graphSize; j++)
+		for (int j = 0; j < rows; j++)
 		{
 			Vector2 gridPos(i*75.0f, j*75.0f);
 			grid[i][j] = pGraph->AddNode(gridPos);
-
 		}
-
 	}
 
-	for (int i = 0; i <graphSize; i++)
+	for (int i = 0; i <cols; i++)
 	{
-		for (int j = 0; j < graphSize; j++)
+		for (int j = 0; j < rows; j++)
 		{
-			if (j < graphSize -1) {
+			if (j < cols -1) {
 				pGraph->AddEdge(*grid[i][j], *grid[i][j + 1], 10);
 				pGraph->AddEdge(*grid[i][j + 1], *grid[i][j], 10);
 			}
-			if (i < graphSize - 1) {
+			if (i < rows - 1) {
 
 				pGraph->AddEdge(*grid[i][j], *grid[i + 1][j], 10);
 				pGraph->AddEdge(*grid[i + 1][j], *grid[i][j], 10);
 			}
 
+			if (i < rows -1 && j < cols -1)
+			{
+				pGraph->AddEdge(*grid[i][j], *grid[i + 1][j + 1], 10);
+				pGraph->AddEdge(*grid[i + 1][j + 1], *grid[i][j], 10);
+			}
+
+			if (i < rows -1 && j < cols -1)
+			{
+				pGraph->AddEdge(*grid[i + 1][j], *grid[i][j + 1], 10);
+				pGraph->AddEdge(*grid[i][j + 1], *grid[i + 1][j], 10);
+			}
 		}
-
 	}
-
-
-
 }

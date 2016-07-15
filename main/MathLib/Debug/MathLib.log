@@ -1,12 +1,12 @@
 ﻿  Vector2.cpp
-c:\users\james.creaton\desktop\ai framework\mathlib\vector2.h(55): warning C4521: 'Vector2': multiple copy constructors specified
-c:\users\james.creaton\desktop\ai framework\mathlib\vector2.cpp(98): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
-c:\users\james.creaton\desktop\ai framework\mathlib\vector2.cpp(132): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
-c:\users\james.creaton\desktop\ai framework\mathlib\vector2.cpp(140): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
-c:\users\james.creaton\desktop\ai framework\mathlib\vector2.cpp(146): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+c:\users\james.creaton\desktop\pathfinding framework 14.7.16\mathlib\vector2.h(57): warning C4521: 'Vector2': multiple copy constructors specified
+c:\users\james.creaton\desktop\pathfinding framework 14.7.16\mathlib\vector2.cpp(98): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+c:\users\james.creaton\desktop\pathfinding framework 14.7.16\mathlib\vector2.cpp(137): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+c:\users\james.creaton\desktop\pathfinding framework 14.7.16\mathlib\vector2.cpp(145): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+c:\users\james.creaton\desktop\pathfinding framework 14.7.16\mathlib\vector2.cpp(151): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
   Generating Code...
   Skipping... (no relevant changes detected)
   Matrix4.cpp
   Matrix3.cpp
   Matrix2.cpp
-  MathLib.vcxproj -> C:\Users\James.Creaton\Desktop\Ai framework\Debug\MathLib.lib
+  MathLib.vcxproj -> C:\Users\James.Creaton\Desktop\Pathfinding Framework 14.7.16\Debug\MathLib.lib

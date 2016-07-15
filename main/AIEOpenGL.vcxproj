@@ -11,6 +11,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="PathBehaviour.cpp" />
     <ClCompile Include="src\AABBCollider.cpp" />
     <ClCompile Include="src\Agent.cpp" />
     <ClCompile Include="src\BaseApplication.cpp" />
@@ -35,6 +36,7 @@
     <ClCompile Include="src\WanderBehaviour.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="PathBehaviour.h" />
     <ClInclude Include="src\AABBCollider.h" />
     <ClInclude Include="src\Agent.h" />
     <ClInclude Include="src\BaseApplication.h" />

@@ -31,6 +31,7 @@ public:
 
 	float Dot(const Vector2& rhs) const;
 	float Magnitude() const;
+	float SqaureMagnitude() const;
 	void Normalise();
 	Vector2 Normalized();
 
@@ -52,6 +53,7 @@ public:
 	float Vector2::Distance(float a_pos1X, float a_pos1Y, float a_pos2X, float a_pos2Y);
 	//Distance between two vectors not using square root
 	float Vector2::SqrDistance(Vector2 a_pos1, Vector2 a_pos2);
+	float Vector2::SqrDistance(Vector2& rhs);
 };
 
 Vector2 operator*(float a_lhs, const Vector2& rhs);

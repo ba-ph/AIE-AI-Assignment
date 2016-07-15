@@ -11,7 +11,10 @@ GraphNode::~GraphNode()
 
 	for (; iter != m_edges.end(); iter++)
 	{
-		
+		if ((*iter)->m_start == this)
+		{
+			(*iter)->m_end->RemoveEdge(*this);
+		}
 	}
 }
 
@@ -38,4 +41,9 @@ void GraphNode::RemoveEdge(GraphNode & a_end)
 bool CompareGScore(const GraphNode * a, const GraphNode * b)
 {
 	return a->gScore < b->gScore;
+}
+
+bool CompareFScore(const GraphNode * a, const GraphNode * b)
+{
+	return a->fScore < b->fScore;
 }

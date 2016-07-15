@@ -30,7 +30,14 @@ public:
 	void DrawCircle(SpriteBatch& a_spritebatch, Vector2 pos, float radius);
 
 
-	std::list<GraphNode*> FindPathBetween(GraphNode* start, GraphNode* end);
+	GraphNode* GetClosestNode(const Vector2 a_data);
+
+	std::list<Vector2> Dijkstra(GraphNode* start, GraphNode* end);
+	std::list<Vector2> AStar(GraphNode* start, GraphNode* end);
+
+	bool DistanceHeuristic(GraphNode* start, GraphNode* end);
+
+	bool GraphEnabled;
 
 	std::list<GraphNode*> m_nodes;
 };

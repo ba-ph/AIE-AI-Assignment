@@ -1,6 +1,9 @@
 ﻿  Application2D.cpp
-c:\users\james.creaton\desktop\ai framework\mathlib\vector2.h(55): warning C4521: 'Vector2': multiple copy constructors specified
-c:\users\james.creaton\desktop\ai framework\mathlib\vector3.h(40): warning C4521: 'Vector3': multiple copy constructors specified
-c:\users\james.creaton\desktop\ai framework\src\application2d.cpp(30): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-c:\users\james.creaton\desktop\ai framework\src\application2d.cpp(100): warning C4018: '<': signed/unsigned mismatch
-  AIEOpenGL.vcxproj -> C:\Users\James.Creaton\Desktop\Ai framework\bin\AIEOpenGL_d.exe
+c:\users\james.creaton\desktop\pathfinding framework 14.7.16\mathlib\vector2.h(57): warning C4521: 'Vector2': multiple copy constructors specified
+c:\users\james.creaton\desktop\pathfinding framework 14.7.16\mathlib\vector3.h(40): warning C4521: 'Vector3': multiple copy constructors specified
+c:\program files (x86)\windows kits\8.1\include\shared\minwindef.h(130): warning C4005: 'APIENTRY': macro redefinition
+  c:\users\james.creaton\desktop\pathfinding framework 14.7.16\dep\glfw-3.1.2\include\glfw\glfw3.h(85): note: see previous definition of 'APIENTRY'
+c:\users\james.creaton\desktop\pathfinding framework 14.7.16\src\application2d.cpp(32): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+c:\users\james.creaton\desktop\pathfinding framework 14.7.16\src\application2d.cpp(78): warning C4553: '==': operator has no effect; did you intend '='?
+c:\users\james.creaton\desktop\pathfinding framework 14.7.16\src\application2d.cpp(80): warning C4553: '==': operator has no effect; did you intend '='?
+  AIEOpenGL.vcxproj -> C:\Users\James.Creaton\Desktop\Pathfinding Framework 14.7.16\bin\AIEOpenGL_d.exe

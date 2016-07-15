@@ -98,6 +98,11 @@ float Vector2::Magnitude() const
 	return sqrt(x*x + y*y);
 }
 
+float Vector2::SqaureMagnitude() const
+{
+	return (x*x + y*y);
+}
+
 void Vector2::Normalise()
 {
 	float magnitude = Magnitude();
@@ -149,6 +154,14 @@ float Vector2::SqrDistance(Vector2 a_pos1, Vector2 a_pos2)
 {
 	float m_distanceX = (a_pos1.x - a_pos2.x) * (a_pos1.x - a_pos2.x);
 	float m_distanceY = (a_pos1.y - a_pos2.y) * (a_pos1.y - a_pos2.y);
+
+	return m_distanceX + m_distanceY;
+}
+
+float Vector2::SqrDistance(Vector2 & rhs)
+{
+	float m_distanceX = (this->x - rhs.x) * (this->x - rhs.x);
+	float m_distanceY = (this->y - rhs.y) * (this->y - rhs.y);
 
 	return m_distanceX + m_distanceY;
 }
