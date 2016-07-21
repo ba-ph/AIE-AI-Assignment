@@ -277,8 +277,13 @@ std::list<Vector2> Graph::AStar(GraphNode * start, GraphNode * end)
 			}
 		}
 	}
+	
+	std::list<Vector2> path;          
 
-	std::list<Vector2> path;
+	if (end->previous == nullptr) {
+		path.push_back(start->data);
+		return path;
+	}
 
 	GraphNode* currNode = end;
 

@@ -1,11 +1,5 @@
-﻿  BaseApplication.cpp
-c:\users\james.creaton\desktop\pathfinding framework 14.7.16\mathlib\vector2.h(57): warning C4521: 'Vector2': multiple copy constructors specified
-c:\users\james.creaton\desktop\pathfinding framework 14.7.16\src\baseapplication.cpp(75): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-  Application2D.cpp
-c:\users\james.creaton\desktop\pathfinding framework 14.7.16\mathlib\vector2.h(57): warning C4521: 'Vector2': multiple copy constructors specified
-c:\users\james.creaton\desktop\pathfinding framework 14.7.16\mathlib\vector3.h(40): warning C4521: 'Vector3': multiple copy constructors specified
-c:\users\james.creaton\desktop\pathfinding framework 14.7.16\src\application2d.cpp(30): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-c:\users\james.creaton\desktop\pathfinding framework 14.7.16\src\application2d.cpp(83): warning C4553: '==': operator has no effect; did you intend '='?
-c:\users\james.creaton\desktop\pathfinding framework 14.7.16\src\application2d.cpp(85): warning C4553: '==': operator has no effect; did you intend '='?
-  Generating Code...
-  AIEOpenGL.vcxproj -> C:\Users\James.Creaton\Desktop\Pathfinding Framework 14.7.16\bin\AIEOpenGL_d.exe
+﻿  Graph.cpp
+c:\users\james.creaton\desktop\main\mathlib\vector2.h(57): warning C4521: 'Vector2': multiple copy constructors specified
+c:\users\james.creaton\desktop\main\src\graph.cpp(5): warning C4553: '==': operator has no effect; did you intend '='?
+c:\users\james.creaton\desktop\main\src\graph.cpp(304): warning C4800: 'float': forcing value to bool 'true' or 'false' (performance warning)
+  AIEOpenGL.vcxproj -> C:\Users\James.Creaton\Desktop\main\bin\AIEOpenGL_d.exe

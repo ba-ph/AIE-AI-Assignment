@@ -68,7 +68,7 @@ bool BaseApplication::isMouseButtonPressed(int button) {
 
 void BaseApplication::getCursorPositionVec(Vector2& a_mousePos)
 {
-	float height = 910.0f;
+	float height = 920.0f;
 
 	double dx = 0, dy = 0;
 	glfwGetCursorPos(m_window, &dx, &dy);

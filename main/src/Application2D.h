@@ -7,7 +7,6 @@ class SpriteBatch;
 class Texture;
 class Font;
 class EntityManager;
-class Socket;
 class BaseEntity;
 class Graph;
 class GraphNode;
@@ -17,6 +16,7 @@ class GraphNode;
 #include "IBehaviour.h"
 #include <vector>
 #include "Polygon.h"
+#include "inputmanager.h"
 
 class Application2D : public BaseApplication {
 public:
@@ -38,6 +38,8 @@ protected:
 
 private:
 
+	Input* m_input;
+
 	void CreateGraph();
 
 	Vector2 m_mousePos;
@@ -45,9 +47,19 @@ private:
 	Graph* pGraph;
 
 	Transform rootTransform;
-
-	
 	PathBehaviour pathBehaviour;
 
+	GraphNode* StartMouseNode;
+	GraphNode* TargetMouseNode;
+
+	std::list<Vector2> path;
+
 	Agent agent;
+
+	//bad
+	int m_mouseX;
+	int m_mouseY;
+	float timer;
+	float cooldown;
+	int clickCount;
 };
