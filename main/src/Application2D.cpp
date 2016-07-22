@@ -13,7 +13,12 @@
 #include <random>
 #include "Graph.h"
 #include "GraphNode.h"
-
+#include "DecisionNode.h"
+#include "WanderAction.h"
+#include "FleeAction.h"
+#include "PathAction.h"
+#include "SeekAction.h"
+#include "CheckDistanceDecision.h"
 
 
 
@@ -51,8 +56,19 @@ bool Application2D::startup() {
 	agent.SetPosition(Vector2(200.0f, 200.0f));
 	agent.m_maxVelocity = 400.0f;
 
-	//Assign behaviour
-	agent.AddBehaviour(&pathBehaviour);
+	//TEMP SET UP OF DECISION TREE
+	PathAction* pathActoin = new PathAction();
+	SeekAction* seekAction = new SeekAction();
+	FleeAction* fleeAction = new FleeAction();
+	WanderAction* wanderAction = new WanderAction();
+	CheckDistanceDecision* checkDistanceDicision = new CheckDistanceDecision();
+	checkDistanceDicision->SetActions(pathActoin, fleeAction);
+	checkDistanceDicision->SetDistanceThreshold(35000.0f);
+
+	agent.SetTarget(m_mousePos);
+	agent.SetRootNode(checkDistanceDicision);
+
+	///////////////
 
 
 	// Create a graph
@@ -64,15 +80,16 @@ bool Application2D::startup() {
 	//bad timers because I'm too lazy to make a waskeyreleased function
 	timer = 0.0f;
 	cooldown = 0.1f;
-
-
 	StartMouseNode = nullptr;
 	TargetMouseNode = nullptr;
 	clickCount = 0;
+	///////////////
 
 
+	//Setting up InputManager
 	Input::CreateSingleton();
 	m_input = Input::GetSingleton();
+	//Need to update singleton function to take in Vector2
 	m_mouseX = 0;
 	m_mouseY = 0;
 
@@ -91,11 +108,15 @@ void Application2D::shutdown() {
 }
 
 bool Application2D::update(float deltaTime) {
+	timer += deltaTime;
+	getCursorPositionVec(m_mousePos);
+
+	agent.Update(deltaTime);
+	agent.UpdateTarget(m_mousePos);
+
 
 	//m_input->GetMouseXY(&m_mouseX, &m_mouseY);
-	timer += deltaTime;
-
-	getCursorPositionVec(m_mousePos);
+	
 	rootTransform.UpdateTransforms();
 
 	//Remove Nodes
@@ -111,25 +132,6 @@ bool Application2D::update(float deltaTime) {
 			pGraph->GraphEnabled = true;
 		timer = 0.0f;
 	}
-
-	//Set node path
-	/*if (m_input->WasMouseButtonPressed(0) && timer >= cooldown)
-	{
-		clickCount++;
-		if (clickCount == 1)
-		{
-			StartMouseNode = pGraph->GetClosestNode(m_mousePos);
-			timer = 0.0f;
-		}
-
-		if (clickCount == 2) {
-			TargetMouseNode = pGraph->GetClosestNode(m_mousePos);
-			path = pGraph->AStar(StartMouseNode, TargetMouseNode);
-			clickCount = 0;
-			timer = 0.0f;
-		}
-	}*/
-
 
 	// close the application if the window closes or we press escape
 	if (hasWindowClosed() || isKeyPressed(GLFW_KEY_ESCAPE))
@@ -151,7 +153,7 @@ void Application2D::draw() {
 	if (pGraph->m_nodes.size() > 2)
 	{
 		//Calculate path
-		path = pGraph->AStar(pGraph->GetNode(0), pGraph->GetNode(pGraph->m_nodes.size() -1));
+		path = pGraph->AStar(pGraph->GetNode(0), pGraph->GetNode(0) /*pGraph->GetNode(pGraph->m_nodes.size() -1)*/);
 
 		//Draw the path
 		auto currPos = path.begin();
@@ -171,14 +173,12 @@ void Application2D::draw() {
 			m_spriteBatch->drawLine(p1.x, p1.y, p2.x, p2.y, 2.0f);
 		}
 	}
-	m_spriteBatch->setSpriteColor(1, 1, 1, 1);
 
+	agent.Draw(m_spriteBatch);
 
 	if (pGraph->GraphEnabled) {
 		pGraph->Draw(*m_spriteBatch);
 	}
-
-	//object1.Draw(m_spriteBatch);
 
 	// done drawing sprites
 	m_spriteBatch->end();
@@ -225,32 +225,4 @@ void Application2D::CreateGraph()
 		}
 	}
 }
-
-
-/*Swapped*/
-//for (int i = 0; i <cols; i++)
-//{
-//	for (int j = 0; j < rows; j++)
-//	{
-//		if (i < cols - 1) {
-//			pGraph->AddEdge(*grid[j][i], *grid[j][i + 1], 10);
-//			pGraph->AddEdge(*grid[j][i + 1], *grid[j][i], 10);
-//		}
-//		if (j < rows - 1) {
-//			pGraph->AddEdge(*grid[j][i], *grid[j + 1][i], 10);
-//			pGraph->AddEdge(*grid[j + 1][i], *grid[j][i], 10);
-//		}
-//
-//		if (j < rows - 1 && i < cols - 1) {
-//			pGraph->AddEdge(*grid[j][i], *grid[j + 1][i + 1], 10);
-//			pGraph->AddEdge(*grid[j + 1][i + 1], *grid[j][i], 10);
-//		}
-//
-//		if (j < rows - 1 && i < cols - 1) {
-//			pGraph->AddEdge(*grid[j + 1][i], *grid[j][i + 1], 10);
-//			pGraph->AddEdge(*grid[j][i + 1], *grid[j + 1][i], 10);
-//		}
-//	}
-//}
-
 

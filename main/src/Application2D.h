@@ -37,25 +37,24 @@ protected:
 	Font*			m_font;
 
 private:
-
+	EntityManager* m_entityManager;
 	Input* m_input;
 
+	Graph* pGraph;
 	void CreateGraph();
 
 	Vector2 m_mousePos;
-	EntityManager* m_entityManager;
-	Graph* pGraph;
-
 	Transform rootTransform;
-	PathBehaviour pathBehaviour;
+	Agent agent;
 
+
+	PathBehaviour pathBehaviour;
 	GraphNode* StartMouseNode;
 	GraphNode* TargetMouseNode;
 
 	std::list<Vector2> path;
 
-	Agent agent;
-
+	
 	//bad
 	int m_mouseX;
 	int m_mouseY;

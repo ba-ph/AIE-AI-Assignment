@@ -1,24 +1,39 @@
-c:\users\james.creaton\desktop\ai framework\debug\vc140.pdb
-c:\users\james.creaton\desktop\ai framework\debug\vc140.idb
-c:\users\james.creaton\desktop\ai framework\debug\agent.obj
-c:\users\james.creaton\desktop\ai framework\debug\baseapplication.obj
-c:\users\james.creaton\desktop\ai framework\debug\baseentity.obj
-c:\users\james.creaton\desktop\ai framework\debug\collisionmanager.obj
-c:\users\james.creaton\desktop\ai framework\debug\entitymanager.obj
-c:\users\james.creaton\desktop\ai framework\debug\font.obj
-c:\users\james.creaton\desktop\ai framework\debug\graphnode.obj
-c:\users\james.creaton\desktop\ai framework\debug\ibehaviour.obj
-c:\users\james.creaton\desktop\ai framework\debug\inputmanager.obj
-c:\users\james.creaton\desktop\ai framework\debug\main.obj
-c:\users\james.creaton\desktop\ai framework\debug\player.obj
-c:\users\james.creaton\desktop\ai framework\debug\polygon.obj
-c:\users\james.creaton\desktop\ai framework\debug\seekbehaviour.obj
-c:\users\james.creaton\desktop\ai framework\debug\spritebatch.obj
-c:\users\james.creaton\desktop\ai framework\debug\texture.obj
-c:\users\james.creaton\desktop\ai framework\debug\transform.obj
-c:\users\james.creaton\desktop\ai framework\debug\wanderbehaviour.obj
-c:\users\james.creaton\desktop\ai framework\debug\aabbcollider.obj
-c:\users\james.creaton\desktop\ai framework\debug\mathlib.pdb
-c:\users\james.creaton\desktop\ai framework\debug\aieopengl.tlog\cl.command.1.tlog
-c:\users\james.creaton\desktop\ai framework\debug\aieopengl.tlog\cl.read.1.tlog
-c:\users\james.creaton\desktop\ai framework\debug\aieopengl.tlog\cl.write.1.tlog
+c:\users\james.creaton\desktop\main\debug\vc140.pdb
+c:\users\james.creaton\desktop\main\debug\vc140.idb
+c:\users\james.creaton\desktop\main\debug\decisionnode.obj
+c:\users\james.creaton\desktop\main\debug\entitymanager.obj
+c:\users\james.creaton\desktop\main\debug\fleeaction.obj
+c:\users\james.creaton\desktop\main\debug\font.obj
+c:\users\james.creaton\desktop\main\debug\graph.obj
+c:\users\james.creaton\desktop\main\debug\graphedge.obj
+c:\users\james.creaton\desktop\main\debug\graphnode.obj
+c:\users\james.creaton\desktop\main\debug\ibehaviour.obj
+c:\users\james.creaton\desktop\main\debug\inputmanager.obj
+c:\users\james.creaton\desktop\main\debug\main.obj
+c:\users\james.creaton\desktop\main\debug\application2d.obj
+c:\users\james.creaton\desktop\main\debug\pathbehaviour.obj
+c:\users\james.creaton\desktop\main\debug\player.obj
+c:\users\james.creaton\desktop\main\debug\polygon.obj
+c:\users\james.creaton\desktop\main\debug\seekbehaviour.obj
+c:\users\james.creaton\desktop\main\debug\spritebatch.obj
+c:\users\james.creaton\desktop\main\debug\texture.obj
+c:\users\james.creaton\desktop\main\debug\transform.obj
+c:\users\james.creaton\desktop\main\debug\wanderbehaviour.obj
+c:\users\james.creaton\desktop\main\debug\aabbcollider.obj
+c:\users\james.creaton\desktop\main\debug\agent.obj
+c:\users\james.creaton\desktop\main\debug\baseapplication.obj
+c:\users\james.creaton\desktop\main\debug\baseentity.obj
+c:\users\james.creaton\desktop\main\debug\collisionmanager.obj
+c:\users\james.creaton\desktop\main\debug\wanderaction.obj
+c:\users\james.creaton\desktop\main\debug\gl_core_4_4.obj
+c:\users\james.creaton\desktop\main\debug\seekaction.obj
+c:\users\james.creaton\desktop\main\bin\aieopengl_d.ilk
+c:\users\james.creaton\desktop\main\bin\aieopengl_d.exe
+c:\users\james.creaton\desktop\main\bin\aieopengl_d.pdb
+c:\users\james.creaton\desktop\main\debug\mathlib.pdb
+c:\users\james.creaton\desktop\main\debug\aieopengl.tlog\cl.command.1.tlog
+c:\users\james.creaton\desktop\main\debug\aieopengl.tlog\cl.read.1.tlog
+c:\users\james.creaton\desktop\main\debug\aieopengl.tlog\cl.write.1.tlog
+c:\users\james.creaton\desktop\main\debug\aieopengl.tlog\link.command.1.tlog
+c:\users\james.creaton\desktop\main\debug\aieopengl.tlog\link.read.1.tlog
+c:\users\james.creaton\desktop\main\debug\aieopengl.tlog\link.write.1.tlog

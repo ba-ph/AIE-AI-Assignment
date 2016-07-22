@@ -39,7 +39,9 @@ void BaseEntity::Update(float deltaTime)
 void BaseEntity::Draw(SpriteBatch * a_spriteBatch)
 {
 	//m_collider.Draw(a_spriteBatch);
+	a_spriteBatch->setSpriteColor(1,0,0,1);
 	m_polygon.Draw(a_spriteBatch);
+	a_spriteBatch->setSpriteColor(1, 1, 1, 1);
 }
 
 void BaseEntity::AddForce(Vector2 & a_force)

@@ -28,9 +28,6 @@
     <Filter Include="Engine\Managers\CollisionManager">
       <UniqueIdentifier>{0d0a8308-d96b-489a-b332-70eced77816b}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Engine\Managers\NodeManger">
-      <UniqueIdentifier>{5bfdab16-2932-46ff-a33e-e2313ab77de6}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Engine\Managers\InputManager">
       <UniqueIdentifier>{b865d16b-715a-4b36-8818-e444290a9cc5}</UniqueIdentifier>
     </Filter>
@@ -58,6 +55,18 @@
     <Filter Include="Engine\Managers\Graphs\GraphEdges">
       <UniqueIdentifier>{eed43637-0995-49bb-82c5-606f65ac7de4}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Engine\Managers\Decision Tree">
+      <UniqueIdentifier>{2c275057-df8d-450c-8915-8fa33e4f260c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\Managers\Decision Tree\ActionNodes">
+      <UniqueIdentifier>{3facef7a-d903-4178-a575-b55aa249d5fb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\Managers\Decision Tree\BaseDecisionNode">
+      <UniqueIdentifier>{3a87dde4-d2b5-432e-8e8b-473f8d744fee}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\Managers\Decision Tree\CheckDecisions">
+      <UniqueIdentifier>{364e6031-bf76-4c5d-97e1-0262dd28efa4}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\BaseApplication.cpp">
@@ -80,9 +89,6 @@
     </ClCompile>
     <ClCompile Include="src\Font.cpp">
       <Filter>BaseCode</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Player.cpp">
-      <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\Transform.cpp">
       <Filter>Source Files</Filter>
@@ -129,6 +135,24 @@
     <ClCompile Include="src\PathBehaviour.cpp">
       <Filter>Engine\Managers\Agents\Behaviours</Filter>
     </ClCompile>
+    <ClCompile Include="src\DecisionNode.cpp">
+      <Filter>Engine\Managers\Decision Tree\BaseDecisionNode</Filter>
+    </ClCompile>
+    <ClCompile Include="src\WanderAction.cpp">
+      <Filter>Engine\Managers\Decision Tree\ActionNodes</Filter>
+    </ClCompile>
+    <ClCompile Include="src\FleeAction.cpp">
+      <Filter>Engine\Managers\Decision Tree\ActionNodes</Filter>
+    </ClCompile>
+    <ClCompile Include="src\CheckDistanceDecision.cpp">
+      <Filter>Engine\Managers\Decision Tree\CheckDecisions</Filter>
+    </ClCompile>
+    <ClCompile Include="src\SeekAction.cpp">
+      <Filter>Engine\Managers\Decision Tree\ActionNodes</Filter>
+    </ClCompile>
+    <ClCompile Include="src\PathAction.cpp">
+      <Filter>Engine\Managers\Decision Tree\ActionNodes</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\gl_core_4_4.h">
@@ -148,9 +172,6 @@
     </ClInclude>
     <ClInclude Include="src\Font.h">
       <Filter>BaseCode</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Player.h">
-      <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\Transform.h">
       <Filter>Header Files</Filter>
@@ -196,6 +217,24 @@
     </ClInclude>
     <ClInclude Include="src\PathBehaviour.h">
       <Filter>Engine\Managers\Agents\Behaviours</Filter>
+    </ClInclude>
+    <ClInclude Include="src\DecisionNode.h">
+      <Filter>Engine\Managers\Decision Tree\BaseDecisionNode</Filter>
+    </ClInclude>
+    <ClInclude Include="src\WanderAction.h">
+      <Filter>Engine\Managers\Decision Tree\ActionNodes</Filter>
+    </ClInclude>
+    <ClInclude Include="src\FleeAction.h">
+      <Filter>Engine\Managers\Decision Tree\ActionNodes</Filter>
+    </ClInclude>
+    <ClInclude Include="src\CheckDistanceDecision.h">
+      <Filter>Engine\Managers\Decision Tree\CheckDecisions</Filter>
+    </ClInclude>
+    <ClInclude Include="src\SeekAction.h">
+      <Filter>Engine\Managers\Decision Tree\ActionNodes</Filter>
+    </ClInclude>
+    <ClInclude Include="src\PathAction.h">
+      <Filter>Engine\Managers\Decision Tree\ActionNodes</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

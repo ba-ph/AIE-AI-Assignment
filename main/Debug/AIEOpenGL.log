@@ -1,5 +1,5 @@
-﻿  Graph.cpp
+﻿  Application2D.cpp
 c:\users\james.creaton\desktop\main\mathlib\vector2.h(57): warning C4521: 'Vector2': multiple copy constructors specified
-c:\users\james.creaton\desktop\main\src\graph.cpp(5): warning C4553: '==': operator has no effect; did you intend '='?
-c:\users\james.creaton\desktop\main\src\graph.cpp(304): warning C4800: 'float': forcing value to bool 'true' or 'false' (performance warning)
+c:\users\james.creaton\desktop\main\mathlib\vector3.h(40): warning C4521: 'Vector3': multiple copy constructors specified
+c:\users\james.creaton\desktop\main\src\application2d.cpp(34): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
   AIEOpenGL.vcxproj -> C:\Users\James.Creaton\Desktop\main\bin\AIEOpenGL_d.exe

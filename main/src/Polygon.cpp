@@ -33,13 +33,13 @@ void Polygon::Draw(SpriteBatch * a_sprBatch)
 	{
 		p1 = m_transform->TransformedPoint(m_verticies[i]);
 		p2 = m_transform->TransformedPoint(m_verticies[i+1]);
-		a_sprBatch->drawLine(p1.x, p1.y, p2.x, p2.y);
+		a_sprBatch->drawLine(p1.x, p1.y, p2.x, p2.y, 2.0f);
 	}
 
 	p1 = m_transform->TransformedPoint(m_verticies[m_verticies.size() - 1]);
 	p2 = m_transform->TransformedPoint(m_verticies[0]);
 
-	a_sprBatch->drawLine(p1.x, p1.y, p2.x, p2.y);
+	a_sprBatch->drawLine(p1.x, p1.y, p2.x, p2.y, 2.0f);
 }
 
 Vector2 Polygon::Min()
